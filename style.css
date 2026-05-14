@@ -442,8 +442,8 @@ body {
 .task-item.urgency-ok     .task-urgency-bar { background: var(--ok); }
 
 /* Fondo sutil según urgencia */
-.task-item.urgency-urgent { background: linear-gradient(to right, var(--urgent-bg), var(--card-bg) 30%); }
-.task-item.urgency-soon   { background: linear-gradient(to right, var(--soon-bg),   var(--card-bg) 30%); }
+.task-item.urgency-urgent { background: linear-gradient(to right, rgb(22, 21, 21),    rgb(17, 16, 16)  30%); }
+.task-item.urgency-soon   { background: linear-gradient(to right, rgb(22, 21, 21),    rgb(17, 16, 16)  30%); }
 .task-item.urgency-ok     { background: linear-gradient(to right, rgb(22, 21, 21),    rgb(17, 16, 16)  30%); }
 
 /* ── CUERPO DE LA TARJETA ── */
