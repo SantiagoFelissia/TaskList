@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskList — Gestión de Tareas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ 
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <!-- <div class="notebook-bg" aria-hidden="true">
+    <div class="nb-line"></div><div class="nb-line"></div><div class="nb-line"></div>
+    <div class="nb-line"></div><div class="nb-line"></div><div class="nb-line"></div>
+    <div class="nb-line"></div><div class="nb-line"></div><div class="nb-line"></div>
+  </div>
+-->
+  <div class="layout">
+ 
+    <!-- ══ SIDEBAR: formulario de ingreso ══ -->
+    <aside class="sidebar">
+ 
+      <header class="brand">
+        <span class="brand-icon" aria-hidden="true">✦</span>
+        <div>
+          <h1 class="brand-title">TASKLIST</h1>
+          <p class="brand-sub">Gestión de tareas</p>
+        </div>
+      </header>
+ 
+      <!-- Contador visual de tareas pendientes -->
+      <div class="task-counter">
+        <span class="counter-num" id="taskCount">0</span>
+        <span class="counter-label">tareas pendientes</span>
+      </div>
+ 
+      <!-- ── FORMULARIO DE NUEVA TAREA ── -->
+      <form class="task-form" id="taskForm" novalidate>
+ 
+        <!-- Campo: nombre de la tarea -->
+        <div class="field-group">
+          <label class="field-label" for="taskName">Tarea</label>
+          <input
+            type="text"
+            id="taskName"
+            class="field-input"
+            placeholder="Ej: Tareas "
+            maxlength="80"
+            autocomplete="off"
+          />
+        </div>
+ 
+        <!-- Campo: materia -->
+        <div class="field-group">
+          <label class="field-label" for="taskSubject">Area</label>
+          <input
+            type="text"
+            id="taskSubject"
+            class="field-input"
+            placeholder="Ej: Facultad,Trabajo "
+            maxlength="40"
+            autocomplete="off"
+          />
+        </div>
+ 
+        <!-- Campo: fecha límite -->
+        <div class="field-group">
+          <label class="field-label" for="taskDate">Fecha límite</label>
+          <input
+            type="date"
+            id="taskDate"
+            class="field-input"
+          />
+        </div>
+ 
+        <!-- Campo: prioridad (radio buttons personalizados) -->
+        <div class="field-group">
+          <label class="field-label">Prioridad</label>
+          <div class="priority-selector" role="group" aria-label="Seleccionar prioridad">
+            <label class="priority-opt prio-alta">
+              <input type="radio" name="priority" value="Alta" />
+              <span>Alta</span>
+            </label>
+           
+            <label class="priority-opt prio-baja">
+              <input type="radio" name="priority" value="Baja" />
+              <span>Baja</span>
+            </label>
+          </div>
+        </div>
+ 
+        <!-- Mensaje de error de validación -->
+        <p class="form-error" id="formError" role="alert" aria-live="polite"></p>
+ 
+        <!-- Botón de envío -->
+        <button type="submit" class="btn-add">
+          <span aria-hidden="true">+</span> Agregar tarea
+        </button>
+ 
+      </form>
+    </aside>
+ 
+    <!-- ══ ÁREA PRINCIPAL: lista de tareas ══ -->
+    <main class="main">
+ 
+      <!-- Cabecera con título y filtros -->
+      <div class="main-header">
+        <h2 class="main-title">Mis tareas</h2>
+        <div class="filters" role="group" aria-label="Filtrar por prioridad">
+          <button class="filter-btn active" data-filter="all">Todas</button>
+          <button class="filter-btn" data-filter="Alta">Alta</button>
+          <button class="filter-btn" data-filter="Baja">Baja</button>
+        </div>
+      </div>
+ 
+      <!-- Leyenda de colores por urgencia de fecha -->
+      <div class="legend">
+        <span class="legend-item legend-urgent">● Vence hoy o dentro de poco</span>
+        <span class="legend-item legend-ok">● poca importancia</span>
+      </div>
+ 
+      <!-- Lista de tareas (JS la llena dinámicamente) -->
+      <ul class="task-list" id="taskList" aria-label="Lista de tareas pendientes">
+ 
+        <!-- Estado vacío: visible solo cuando no hay tareas -->
+        <li class="empty-state" id="emptyState">
+          <span class="empty-icon" aria-hidden="true">📋</span>
+          <p>Sin tareas pendientes</p>
+          <p class="empty-sub">Agregá una desde el formulario izquierdo.</p>
+        </li>
+ 
+      </ul>
+ 
+    </main>
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
